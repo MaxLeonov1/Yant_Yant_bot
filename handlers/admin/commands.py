@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from keys.key import kb_command
 
 @router.message(F.text == 'Команды')
-async def adm_start_reg(message: Message):
+async def adm_commands(message: Message):
     user_id = message.chat.id
     if user_id in admin_id:
         builder = ReplyKeyboardBuilder()

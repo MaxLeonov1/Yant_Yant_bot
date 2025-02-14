@@ -26,6 +26,13 @@ async def start_reg(message: Message, state: FSMContext):
     await state.set_state((Form_reg.fio))
     await message.answer('Для начала введите ФИО полностью',reply_markup=types.ReplyKeyboardRemove())
 
+##############Отмена_регистрации##############################
+
+@router.message(Command('cancel'))
+async def cancel_com( message: Message,state:FSMContext):
+    await state.clear()
+    await message.answer('Регистрация отменена')
+
 ############Регистрация##################
 
 @router.message(Form_reg.fio)
@@ -61,5 +68,8 @@ async def get_fio(message: Message, state: FSMContext):
     con.commit()
     await message.answer('Регистрация завершена')
 
-###############################################################
+
+
+
+
 
